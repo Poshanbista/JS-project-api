@@ -6,6 +6,8 @@ import user12 from '../model/user.js';
 import bcrypt from "bcrypt";
 import logger from '../../common/utils/logger.js';
 import token1 from '../model/token.js';
+import dotenv from "dotenv";
+dotenv.config();
 
 const forgotPassword = express.Router();
 
@@ -16,8 +18,8 @@ let OTPstore = {};   // Temporary OTP storage
 const transporter = nodemailer.createTransport({
     service :"gmail",
     auth:{
-        user:"bistaposhan123@gmail.com ",
-        pass:"pbhc dfhu vmph kgwc"
+        user:process.env.email,
+        pass:process.env.password
     }
 });
 
